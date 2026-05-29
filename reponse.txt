@@ -1,0 +1,35 @@
+
+Exercice 1 — Configuration de l'application
+Question 1.1 : Que représente le dataProvider dans React-Admin ? Quel est son rôle ?
+Le dataProvider est l'adaptateur qui fait le lien entre React-Admin et l'API. React-Admin ne sait pas comment appeler une API : il ne connaît pas les URLs, le format des données ni les méthodes HTTP. Le dataProvider traduit les actions internes (getList, getOne, create, update, delete) en vraies requêtes HTTP.
+Par exemple, quand React-Admin veut afficher la liste des employés, il appelle dataProvider.getList("employees", ...). Le jsonServerProvider transforme cela en GET http://localhost:3002/employees.
+Sans dataProvider, React-Admin ne peut pas communiquer avec une API.
+
+Question 1.2 : Quelle requête HTTP est envoyée au chargement de la liste ?
+Dans l'onglet Network du navigateur, on observe : GET http://localhost:3002/employees?_sort=id&_order=ASC&_start=0&_end=5
+Les paramètres signifient : _sort=id&_order=ASC = tri par ID croissant, _start=0&_end=5 = pagination (les 5 premiers employés).
+
+Exercice 2 — Liste des employés
+Question 2.1 : Que fait la prop rowClick="edit" sur le Datagrid ?
+Quand l'utilisateur clique sur une ligne du tableau, React-Admin le redirige automatiquement vers la page de modification de cet employé. L'URL devient /employees/{id}/edit. Dans notre projet on utilise rowClick="show" à la place, ce qui redirige vers la page de détail.
+
+Question 2.2 : Passez perPage à 2. Que se passe-t-il dans l'interface ?
+Le tableau n'affiche plus que 2 employés par page. La barre de pagination en bas change et montre "1-2 sur 5". Des boutons Précédent / Suivant permettent de naviguer entre les pages. L'API est appelée avec _start=0&_end=2 puis _start=2&_end=4, etc.
+
+Exercice 3 — Création d'un employé
+Question 3.1 : Que se passe-t-il si vous soumettez le formulaire sans remplir le prénom ?
+Le formulaire ne se soumet pas. Un message d'erreur rouge s'affiche directement sous le champ vide : "Le prénom est obligatoire". La requête HTTP n'est jamais envoyée à l'API. C'est la validation côté client gérée par validate={[required(...)]}.
+
+Question 3.2 : Essayez de saisir un salaire de 500 euros. Que se passe-t-il ?
+Le formulaire bloque la soumission et affiche sous le champ salaire : "Le salaire minimum est 1 500 €". C'est la règle minValue(1500, ...) qui s'applique. Aucune requête n'est envoyée à l'API.
+
+Exercice 4 — Modification d'un employé
+Question 4.1 : Quelle méthode HTTP est utilisée lors de la sauvegarde d'une modification ?
+Dans l'onglet Network, on voit : PUT http://localhost:3002/employees/1. La méthode PUT remplace l'intégralité de l'enregistrement. React-Admin envoie tous les champs de l'employé dans le corps (body) de la requête.
+
+Question 4.2 : À quel moment useRecordContext() est-il disponible ? Que retourne-t-il si l'enregistrement n'est pas encore chargé ?
+useRecordContext() est disponible uniquement à l'intérieur d'un composant enfant d'un contexte d'enregistrement comme <Edit> ou <Show>. Si l'enregistrement n'est pas encore chargé, il retourne undefined. C'est pourquoi on vérifie toujours if (!record) avant d'accéder à ses propriétés.
+
+Exercice 5 — Fiche détail
+Question 5.1 : Quelle différence y a-t-il entre SimpleShowLayout et TabbedShowLayout ?
+SimpleShowLayout affiche tous les champs à la suite, de haut en bas. C'est idéal pour des fiches simples avec peu de champs. TabbedShowLayout organise les champs en onglets cliquables, idéal quand il y a beaucoup de champs à regrouper par catégorie. Il nécessite des composants <Tab> enfants pour définir chaque onglet.
