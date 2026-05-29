@@ -1,7 +1,6 @@
 
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import PeopleIcon from "@mui/icons-material/People";
 import { EmployeeList } from "./EmployeeList";
 import { EmployeeCreate } from "./EmployeeCreate";
 import { EmployeeEdit } from "./EmployeeEdit";
@@ -16,7 +15,6 @@ function App() {
     >
       <Resource
         name="employees"
-        icon={PeopleIcon}
         options={{ label: "Employés" }}
         list={EmployeeList}
         create={EmployeeCreate}
