@@ -67,6 +67,7 @@ export const EmployeeEdit = () => (
           required("Le salaire est obligatoire"),
           minValue(1500, "Le salaire minimum est 1 500 €"),
         ]}
+        min={1500}
         fullWidth
       />
       <BooleanInput source="active" label="Employé actif" />

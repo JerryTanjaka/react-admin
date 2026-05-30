@@ -1,10 +1,10 @@
 
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import { EmployeeList } from "./EmployeeList";
-import { EmployeeCreate } from "./EmployeeCreate";
-import { EmployeeEdit } from "./EmployeeEdit";
-import { EmployeeShow } from "./EmployeeShow";
+import { EmployeeList } from "./employees/EmployeeList";
+import { EmployeeCreate } from "./employees/EmployeeCreate";
+import { EmployeeEdit } from "./employees/EmployeeEdit";
+import { EmployeeShow } from "./employees/EmployeeShow";
 const dataProvider = jsonServerProvider("http://localhost:3002");
 
 function App() {

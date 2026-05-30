@@ -4,7 +4,7 @@ Question 1.1 : Que représente le dataProvider dans React-Admin ? Quel est son r
 Le dataProvider est l'adaptateur qui fait le lien entre React-Admin et l'API. React-Admin ne sait pas comment appeler une API : il ne connaît pas les URLs, le format des données ni les méthodes HTTP. Le dataProvider traduit les actions internes (getList, getOne, create, update, delete) en vraies requêtes HTTP.
 Par exemple, quand React-Admin veut afficher la liste des employés, il appelle dataProvider.getList("employees", ...). Le jsonServerProvider transforme cela en GET http://localhost:3002/employees.
 Sans dataProvider, React-Admin ne peut pas communiquer avec une API.
-
+il représente les methodes des requête http.
 Question 1.2 : Quelle requête HTTP est envoyée au chargement de la liste ?
 Dans l'onglet Network du navigateur, on observe : GET http://localhost:3002/employees?_sort=id&_order=ASC&_start=0&_end=5
 Les paramètres signifient : _sort=id&_order=ASC = tri par ID croissant, _start=0&_end=5 = pagination (les 5 premiers employés).
