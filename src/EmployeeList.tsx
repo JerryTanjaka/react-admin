@@ -10,7 +10,6 @@ import {
   SelectInput,
   EditButton,
   DeleteButton,
-  ShowButton,
 } from "react-admin";
 
 const employeeFilters = [
@@ -51,7 +50,6 @@ export const EmployeeList = () => (
 
       <EditButton label="Modifier" />
       <DeleteButton label="Supprimer" />
-      <ShowButton label="Voir" />
     </Datagrid>
   </List>
 );
