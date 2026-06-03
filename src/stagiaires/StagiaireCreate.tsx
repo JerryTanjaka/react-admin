@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import {
   Create,
   SimpleForm,
@@ -7,13 +8,28 @@ import {
   BooleanInput,
   ReferenceInput,
   SelectInput,
+  useGetOne,
   required,
   email,
-  useWatch,
 } from "react-admin";
+import { useWatch, useFormContext } from "react-hook-form";
 
 const StagiaireForm = () => {
+  const { setValue } = useFormContext();
   const paid = useWatch({ name: "paid" });
+  const mentorId = useWatch({ name: "mentorId" });
+
+  const { data: mentor } = useGetOne(
+    "employees",
+    { id: mentorId },
+    { enabled: !!mentorId }
+  );
+
+  useEffect(() => {
+    if (mentor?.department) {
+      setValue("department", mentor.department);
+    }
+  }, [mentor, setValue]);
 
   return (
     <>
@@ -38,6 +54,12 @@ const StagiaireForm = () => {
         ]}
         fullWidth
       />
+      <ReferenceInput source="mentorId" reference="employees" label="Encadreur">
+        <SelectInput
+          optionText={(record) => `${record.firstname} ${record.lastname}`}
+          validate={[required("L'encadreur est obligatoire")]}
+        />
+      </ReferenceInput>
       <SelectInput
         source="department"
         label="Département"
@@ -47,15 +69,9 @@ const StagiaireForm = () => {
           { id: "RH", name: "RH" },
           { id: "Finance", name: "Finance" },
         ]}
-        validate={[required("Le département est obligatoire")]}
+        disabled
         fullWidth
       />
-      <ReferenceInput source="mentorId" reference="employees" label="Encadreur">
-        <SelectInput
-          optionText={(record) => `${record.firstname} ${record.lastname}`}
-          validate={[required("L'encadreur est obligatoire")]}
-        />
-      </ReferenceInput>
       <BooleanInput source="paid" label="Stage payé" defaultValue={false} />
       {paid && (
         <NumberInput
