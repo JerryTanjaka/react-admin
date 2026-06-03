@@ -10,6 +10,7 @@ import { StagiaireList } from "./stagiaires/StagiaireList";
 import { StagiaireCreate } from "./stagiaires/StagiaireCreate";
 import { StagiaireEdit } from "./stagiaires/StagiaireEdit";
 import { StagiaireShow } from "./stagiaires/StagiaireShow";
+import { lightTheme, darkTheme } from "./theme/theme";
 const dataProvider = jsonServerProvider("http://localhost:3002");
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
     <Admin
       dataProvider={dataProvider}
       dashboard={Dashboard}
+      theme={lightTheme}
+      darkTheme={darkTheme}
       title="Gestion des Employés"
     >
       <Resource
