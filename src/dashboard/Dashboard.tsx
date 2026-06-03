@@ -42,42 +42,39 @@ export const Dashboard = () => {
   const totalSalary = employees?.reduce((sum, e) => sum + e.salary, 0) ?? 0;
   const paidInternSalary = interns?.filter((i) => i.paid).reduce((sum, i) => sum + i.salary, 0) ?? 0;
 
-  const recentEmployees = employees?.slice(-3).reverse() ?? [];
-  const recentInterns = interns?.slice(-3).reverse() ?? [];
-
   const stats = [
     {
-      label: "Employés",
+      label: "👥 Employés",
       value: totalEmployees ?? 0,
       color: "#1976d2",
       to: "/employees",
     },
     {
-      label: "Actifs",
+      label: "✅ Actifs",
       value: activeEmployees ?? 0,
       color: "#388e3c",
       to: "/employees?filter=%7B%22active%22%3Atrue%7D",
     },
     {
-      label: "Inactifs",
+      label: "⛔ Inactifs",
       value: (totalEmployees ?? 0) - (activeEmployees ?? 0),
       color: "#d32f2f",
       to: "/employees?filter=%7B%22active%22%3Afalse%7D",
     },
     {
-      label: "Stagiaires",
+      label: "🎓 Stagiaires",
       value: totalInterns ?? 0,
       color: "#f57c00",
       to: "/interns",
     },
     {
-      label: "Payés",
+      label: "💰 Stagiaires payés",
       value: paidInterns ?? 0,
       color: "#7b1fa2",
       to: "/interns?filter=%7B%22paid%22%3Atrue%7D",
     },
     {
-      label: "Non payés",
+      label: "🕐 Stagiaires non payés",
       value: (totalInterns ?? 0) - (paidInterns ?? 0),
       color: "#9e9e9e",
       to: "/interns?filter=%7B%22paid%22%3Afalse%7D",
@@ -170,70 +167,6 @@ export const Dashboard = () => {
         </Card>
       </Stack>
 
-      <Stack direction="row" spacing={2} sx={{ mb: 4 }}>
-        <Card sx={{ flex: 1 }}>
-          <CardContent>
-            <Typography variant="h6" gutterBottom>
-              Derniers employés
-            </Typography>
-            {recentEmployees.map((e) => (
-              <Typography
-                key={e.id}
-                variant="body2"
-                sx={{ cursor: "pointer", "&:hover": { color: "#1976d2" }, mb: 0.5 }}
-                onClick={() => navigate(`/employees/${e.id}`)}
-              >
-                {e.firstname} {e.lastname} — {e.department}
-              </Typography>
-            ))}
-            {recentEmployees.length === 0 && (
-              <Typography variant="body2" color="text.secondary">
-                Aucun employé
-              </Typography>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card sx={{ flex: 1 }}>
-          <CardContent>
-            <Typography variant="h6" gutterBottom>
-              Derniers stagiaires
-            </Typography>
-            {recentInterns.map((i) => (
-              <Typography
-                key={i.id}
-                variant="body2"
-                sx={{ cursor: "pointer", "&:hover": { color: "#f57c00" }, mb: 0.5 }}
-                onClick={() => navigate(`/interns/${i.id}`)}
-              >
-                {i.firstname} {i.lastname} — {i.paid ? "Payé" : "Non payé"}
-              </Typography>
-            ))}
-            {recentInterns.length === 0 && (
-              <Typography variant="body2" color="text.secondary">
-                Aucun stagiaire
-              </Typography>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card sx={{ flex: 0.6 }}>
-          <CardContent>
-            <Typography variant="h6" gutterBottom>
-              À propos
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Application de gestion des employés et stagiaires.
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              React Admin — CRUD Employés & Stagiaires
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              2 ressources · 4 départements
-            </Typography>
-          </CardContent>
-        </Card>
-      </Stack>
     </div>
   );
 };
