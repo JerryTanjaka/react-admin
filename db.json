@@ -5,9 +5,50 @@
       "firstname": "Léo",
       "lastname": "Dubois",
       "email": "leo@company.com",
+      "department": "Informatique",
       "mentorId": 1,
       "paid": true,
       "salary": 1200
+    },
+    {
+      "id": 2,
+      "firstname": "Sara",
+      "lastname": "Benali",
+      "email": "sara@company.com",
+      "department": "Marketing",
+      "mentorId": 2,
+      "paid": false,
+      "salary": 0
+    },
+    {
+      "id": 3,
+      "firstname": "Tom",
+      "lastname": "Roux",
+      "email": "tom@company.com",
+      "department": "Finance",
+      "mentorId": 4,
+      "paid": true,
+      "salary": 1300
+    },
+    {
+      "id": 4,
+      "firstname": "Inès",
+      "lastname": "Moreau",
+      "email": "ines@company.com",
+      "department": "Informatique",
+      "mentorId": 5,
+      "paid": false,
+      "salary": 0
+    },
+    {
+      "id": 5,
+      "firstname": "Hugo",
+      "lastname": "Klein",
+      "email": "hugo@company.com",
+      "department": "RH",
+      "mentorId": 1,
+      "paid": true,
+      "salary": 1100
     }
   ],
   "employees": [
