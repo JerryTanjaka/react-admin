@@ -154,13 +154,13 @@ export const darkTheme: RaThemeOptions = {
       dark: "#00bfa5",
     },
     background: {
-      default: "#0f0f1a",
-      paper: "#1a1a2e",
+      default: "#1e1e2e",
+      paper: "#2a2a3d",
     },
-    divider: "rgba(255, 255, 255, 0.06)",
+    divider: "rgba(255, 255, 255, 0.08)",
     text: {
-      primary: "#e8eaf0",
-      secondary: "rgba(232, 234, 240, 0.65)",
+      primary: "#f0f0f5",
+      secondary: "rgba(240, 240, 245, 0.7)",
     },
   },
   components: {
@@ -176,12 +176,12 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          backgroundColor: "#1a1a2e",
-          border: "1px solid rgba(179, 136, 255, 0.08)",
-          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+          backgroundColor: "#2a2a3d",
+          border: "1px solid rgba(179, 136, 255, 0.1)",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
           "&:hover": {
-            borderColor: "rgba(179, 136, 255, 0.2)",
-            boxShadow: "0 6px 24px rgba(179, 136, 255, 0.06)",
+            borderColor: "rgba(179, 136, 255, 0.25)",
+            boxShadow: "0 4px 16px rgba(179, 136, 255, 0.08)",
           },
         },
       },
@@ -189,18 +189,18 @@ export const darkTheme: RaThemeOptions = {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#151528",
-          color: "#e8eaf0",
+          backgroundColor: "#2a2a3d",
+          color: "#f0f0f5",
           boxShadow: "none",
-          borderBottom: "1px solid rgba(179, 136, 255, 0.1)",
+          borderBottom: "1px solid rgba(179, 136, 255, 0.12)",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#151528",
-          borderRight: "1px solid rgba(179, 136, 255, 0.06)",
+          backgroundColor: "#252538",
+          borderRight: "1px solid rgba(179, 136, 255, 0.08)",
         },
       },
     },
@@ -208,8 +208,8 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           "& .MuiTableCell-root": {
-            backgroundColor: "rgba(179, 136, 255, 0.04)",
-            borderBottom: "1px solid rgba(179, 136, 255, 0.08)",
+            backgroundColor: "rgba(179, 136, 255, 0.06)",
+            borderBottom: "1px solid rgba(179, 136, 255, 0.1)",
           },
         },
       },
@@ -217,19 +217,19 @@ export const darkTheme: RaThemeOptions = {
     MuiTableCell: {
       styleOverrides: {
         root: {
-          borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
         },
       },
     },
     MuiFilledInput: {
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(255, 255, 255, 0.04)",
+          backgroundColor: "rgba(255, 255, 255, 0.05)",
           "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.07)",
+            backgroundColor: "rgba(255, 255, 255, 0.08)",
           },
           "&$focused": {
-            backgroundColor: "rgba(255, 255, 255, 0.05)",
+            backgroundColor: "rgba(255, 255, 255, 0.06)",
           },
         },
       },
@@ -239,16 +239,16 @@ export const darkTheme: RaThemeOptions = {
         root: {
           borderRadius: 8,
           margin: "2px 8px",
-          color: "rgba(232, 234, 240, 0.65)",
+          color: "rgba(240, 240, 245, 0.65)",
           "&:hover": {
-            backgroundColor: "rgba(179, 136, 255, 0.08)",
+            backgroundColor: "rgba(179, 136, 255, 0.1)",
             color: "#b388ff",
           },
           "&.RaMenuItemLink-active": {
-            backgroundColor: "rgba(179, 136, 255, 0.12)",
+            backgroundColor: "rgba(179, 136, 255, 0.15)",
             color: "#b388ff",
             "&:hover": {
-              backgroundColor: "rgba(179, 136, 255, 0.18)",
+              backgroundColor: "rgba(179, 136, 255, 0.2)",
             },
           },
         },
