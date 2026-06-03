@@ -69,6 +69,13 @@ const baseOverrides = {
       paper: { borderRadius: 16 },
     },
   },
+  RaLayout: {
+    styleOverrides: {
+      root: {
+        minWidth: 0,
+      },
+    },
+  },
 };
 
 export const lightTheme: RaThemeOptions = {

@@ -8,6 +8,8 @@ import {
   FunctionField,
   SearchInput,
   SelectInput,
+  Filter,
+  FilterButton,
   TopToolbar,
   CreateButton,
   EditButton,
@@ -18,22 +20,25 @@ import { Link } from "react-router-dom";
 import PeopleIcon from "@mui/icons-material/People";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
-const employeeFilters = [
-  <SearchInput source="q" alwaysOn />,
-  <SelectInput
-    source="department"
-    label="Département"
-    choices={[
-      { id: "Informatique", name: "Informatique" },
-      { id: "Marketing", name: "Marketing" },
-      { id: "RH", name: "RH" },
-      { id: "Finance", name: "Finance" },
-    ]}
-  />,
-];
+const EmployeeFilters = () => (
+  <Filter>
+    <SearchInput source="q" alwaysOn />
+    <SelectInput
+      source="department"
+      label="Département"
+      choices={[
+        { id: "Informatique", name: "Informatique" },
+        { id: "Marketing", name: "Marketing" },
+        { id: "RH", name: "RH" },
+        { id: "Finance", name: "Finance" },
+      ]}
+    />
+  </Filter>
+);
 
 const EmployeeQuickActions = () => (
   <TopToolbar>
+    <FilterButton />
     <CreateButton label="Ajouter un employé" />
     <Button
       component={Link}
@@ -59,7 +64,7 @@ const EmployeeQuickActions = () => (
 export const EmployeeList = () => (
   <List
     actions={<EmployeeQuickActions />}
-    filters={employeeFilters}
+    filters={<EmployeeFilters />}
     perPage={5}
     sort={{ field: "id", order: "ASC" }}
     title="Liste des Employés"
