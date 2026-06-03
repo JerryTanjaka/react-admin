@@ -308,9 +308,7 @@ export const lightTheme: RaThemeOptions = {
     },
     RaList: {
       styleOverrides: {
-        root: {
-          overflowX: "hidden",
-        },
+        root: {},
       },
     },
     RaListToolbar: {
@@ -617,9 +615,7 @@ export const darkTheme: RaThemeOptions = {
     },
     RaList: {
       styleOverrides: {
-        root: {
-          overflowX: "hidden",
-        },
+        root: {},
       },
     },
     RaListToolbar: {
