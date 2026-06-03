@@ -19,7 +19,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 const employeeFilters = [
-  <SearchInput source="q" alwaysOn />,
+  <SearchInput source="q" alwaysOn variant="outlined" />,
   <SelectInput
     source="department"
     label="Département"
@@ -29,6 +29,8 @@ const employeeFilters = [
       { id: "RH", name: "RH" },
       { id: "Finance", name: "Finance" },
     ]}
+    alwaysOn
+    variant="outlined"
   />,
 ];
 

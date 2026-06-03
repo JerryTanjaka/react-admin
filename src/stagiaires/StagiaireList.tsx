@@ -67,9 +67,9 @@ const TogglePaidButton = () => {
 };
 
 const stagiaireFilters = [
-  <SearchInput source="q" alwaysOn />,
-  <ReferenceInput source="department" reference="departments" label="Département">
-    <SelectInput optionText="name" />
+  <SearchInput source="q" alwaysOn variant="outlined" />,
+  <ReferenceInput source="department" reference="departments" label="Département" alwaysOn>
+    <SelectInput optionText="name" variant="outlined" />
   </ReferenceInput>,
   <SelectInput
     source="paid"
@@ -78,6 +78,8 @@ const stagiaireFilters = [
       { id: "true", name: "Payé" },
       { id: "false", name: "Non payé" },
     ]}
+    alwaysOn
+    variant="outlined"
   />,
 ];
 

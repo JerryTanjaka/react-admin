@@ -318,6 +318,7 @@ export const lightTheme: RaThemeOptions = {
         root: {
           padding: "12px 16px 0",
           backgroundColor: "transparent",
+          borderBottom: "1px solid rgba(0,0,0,0.08)",
         },
       },
     },
@@ -626,6 +627,7 @@ export const darkTheme: RaThemeOptions = {
         root: {
           padding: "12px 16px 0",
           backgroundColor: "transparent",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         },
       },
     },
