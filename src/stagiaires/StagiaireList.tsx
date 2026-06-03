@@ -15,9 +15,47 @@ import {
   CreateButton,
   EditButton,
   DeleteButton,
+  useCreate,
+  useUpdate,
+  useRecordContext,
 } from "react-admin";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+const DuplicateButton = () => {
+  const record = useRecordContext();
+  const [create] = useCreate();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    create("interns", { data: { ...record, id: undefined } }, {
+      onSuccess: () => navigate("/interns"),
+    });
+  };
+
+  return <Button label="Dupliquer" size="small" onClick={handleClick} />;
+};
+
+const TogglePaidButton = () => {
+  const record = useRecordContext();
+  const [update] = useUpdate();
+
+  const handleClick = () => {
+    update("interns", {
+      id: record.id,
+      data: { paid: !record.paid, salary: record.paid ? 0 : 1200 },
+      previousData: record,
+    });
+  };
+
+  return (
+    <Button
+      label={record.paid ? "Passer non payé" : "Passer payé"}
+      size="small"
+      onClick={handleClick}
+    />
+  );
+};
 
 const stagiaireFilters = [
   <SearchInput source="q" alwaysOn />,
@@ -63,6 +101,8 @@ export const StagiaireList = () => (
         options={{ style: "currency", currency: "EUR" }}
       />
       <EditButton label="Modifier" />
+      <DuplicateButton />
+      <TogglePaidButton />
       <DeleteButton label="Supprimer" />
     </Datagrid>
   </List>

@@ -1,6 +1,7 @@
 
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
+import { Dashboard } from "./Dashboard";
 import { EmployeeList } from "./employees/EmployeeList";
 import { EmployeeCreate } from "./employees/EmployeeCreate";
 import { EmployeeEdit } from "./employees/EmployeeEdit";
@@ -15,6 +16,7 @@ function App() {
   return (
     <Admin
       dataProvider={dataProvider}
+      dashboard={Dashboard}
       title="Gestion des Employés"
     >
       <Resource
