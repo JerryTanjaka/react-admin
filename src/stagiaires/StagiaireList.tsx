@@ -5,9 +5,8 @@ import {
   TextField,
   EmailField,
   NumberField,
-  BooleanField,
-  ReferenceField,
   FunctionField,
+  ReferenceField,
   ReferenceInput,
   SearchInput,
   SelectInput,
@@ -19,8 +18,12 @@ import {
   useUpdate,
   useRecordContext,
 } from "react-admin";
-import { Button } from "@mui/material";
+import { Button, Chip } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import SchoolIcon from "@mui/icons-material/School";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 const DuplicateButton = () => {
   const record = useRecordContext();
@@ -33,7 +36,11 @@ const DuplicateButton = () => {
     });
   };
 
-  return <Button size="small" onClick={handleClick}>Dupliquer</Button>;
+  return (
+    <Button size="small" startIcon={<ContentCopyIcon />} onClick={handleClick}>
+      Dupliquer
+    </Button>
+  );
 };
 
 const TogglePaidButton = () => {
@@ -49,8 +56,8 @@ const TogglePaidButton = () => {
   };
 
   return (
-    <Button size="small" onClick={handleClick}>
-      {record.paid ? "Passer non payé" : "Passer payé"}
+    <Button size="small" startIcon={<PaymentsIcon />} onClick={handleClick}>
+      {record.paid ? "Non payé" : "Payé"}
     </Button>
   );
 };
@@ -73,10 +80,22 @@ const stagiaireFilters = [
 const StagiaireQuickActions = () => (
   <TopToolbar>
     <CreateButton label="Ajouter un stagiaire" />
-    <Button component={Link} to="/employees" variant="contained" size="small">
+    <Button
+      component={Link}
+      to="/employees"
+      variant="outlined"
+      size="small"
+      startIcon={<SchoolIcon />}
+    >
       Voir employés
     </Button>
-    <Button component={Link} to="/employees/create" variant="contained" size="small">
+    <Button
+      component={Link}
+      to="/employees/create"
+      variant="outlined"
+      size="small"
+      startIcon={<PersonAddIcon />}
+    >
       Ajouter un employé
     </Button>
   </TopToolbar>
@@ -84,7 +103,20 @@ const StagiaireQuickActions = () => (
 
 export const StagiaireList = () => (
   <List actions={<StagiaireQuickActions />} filters={stagiaireFilters}>
-    <Datagrid rowClick="show">
+    <Datagrid
+      rowClick="show"
+      sx={{
+        "& .RaDatagrid-rowOdd": {
+          backgroundColor: "rgba(124, 77, 255, 0.03)",
+        },
+        "& .RaDatagrid-rowEven": {
+          backgroundColor: "transparent",
+        },
+        "& .RaDatagrid-row:hover": {
+          backgroundColor: "rgba(124, 77, 255, 0.06)",
+        },
+      }}
+    >
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <EmailField source="email" label="Email" />
@@ -92,7 +124,16 @@ export const StagiaireList = () => (
       <ReferenceField source="mentorId" reference="employees" label="Encadreur">
         <FunctionField render={(record) => `${record.firstname} ${record.lastname}`} />
       </ReferenceField>
-      <BooleanField source="paid" label="Payé" />
+      <FunctionField
+        label="Payé"
+        render={(record: { paid: boolean }) =>
+          record.paid ? (
+            <Chip label="Payé" size="small" color="success" variant="outlined" />
+          ) : (
+            <Chip label="Non payé" size="small" color="warning" variant="outlined" />
+          )
+        }
+      />
       <NumberField
         source="salary"
         label="Salaire"
