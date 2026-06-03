@@ -33,3 +33,10 @@ useRecordContext() est disponible uniquement à l'intérieur d'un composant enfa
 Exercice 5 — Fiche détail
 Question 5.1 : Quelle différence y a-t-il entre SimpleShowLayout et TabbedShowLayout ?
 SimpleShowLayout affiche tous les champs à la suite, de haut en bas. C'est idéal pour des fiches simples avec peu de champs. TabbedShowLayout organise les champs en onglets cliquables, idéal quand il y a beaucoup de champs à regrouper par catégorie. Il nécessite des composants <Tab> enfants pour définir chaque onglet.
+
+Exercice 6 — InternList
+Question 6.1 : ReferenceField génère quel appel HTTP pour résoudre le manager ?
+Quand StagiaireList se charge, React Admin effectue d'abord GET /interns pour récupérer la liste des stagiaires avec leurs mentorId. Ensuite, ReferenceField détecte les mentorId uniques (ex: 1, 2, 4, 5) et lance une seconde requête : GET /employees?id=1&id=2&id=4&id=5 (ou GET /employees avec un filtre). L'onglet Network montre ces deux appels.
+
+Question 6.2 : Que se passe-t-il visuellement si mentorId ne correspond à aucun employé ?
+La cellule du manager reste vide. ReferenceField ne trouve pas d'enregistrement correspondant et n'affiche rien. Il n'y a pas d'erreur ni de crash, juste un affichage vide pour cette ligne.
