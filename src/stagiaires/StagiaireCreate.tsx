@@ -13,6 +13,7 @@ import {
   email,
 } from "react-admin";
 import { useWatch, useFormContext } from "react-hook-form";
+import { Typography, Divider } from "@mui/material";
 
 const StagiaireForm = () => {
   const { setValue } = useFormContext();
@@ -33,18 +34,23 @@ const StagiaireForm = () => {
 
   return (
     <>
-      <TextInput
-        source="firstname"
-        label="Prénom"
-        validate={[required("Le prénom est obligatoire")]}
-        fullWidth
-      />
-      <TextInput
-        source="lastname"
-        label="Nom"
-        validate={[required("Le nom est obligatoire")]}
-        fullWidth
-      />
+      <Typography variant="h6" color="primary" sx={{ mb: 1, mt: 1 }}>
+        Informations personnelles
+      </Typography>
+      <div style={{ display: "flex", gap: 16 }}>
+        <TextInput
+          source="firstname"
+          label="Prénom"
+          validate={[required("Le prénom est obligatoire")]}
+          sx={{ flex: 1 }}
+        />
+        <TextInput
+          source="lastname"
+          label="Nom"
+          validate={[required("Le nom est obligatoire")]}
+          sx={{ flex: 1 }}
+        />
+      </div>
       <TextInput
         source="email"
         label="Email"
@@ -54,6 +60,10 @@ const StagiaireForm = () => {
         ]}
         fullWidth
       />
+      <Divider sx={{ my: 1 }} />
+      <Typography variant="h6" color="primary" sx={{ mb: 1, mt: 1 }}>
+        Encadrement et stage
+      </Typography>
       <ReferenceInput source="mentorId" reference="employees" label="Encadreur">
         <SelectInput
           optionText={(record) => `${record.firstname} ${record.lastname}`}
@@ -72,6 +82,10 @@ const StagiaireForm = () => {
         disabled
         fullWidth
       />
+      <Divider sx={{ my: 1 }} />
+      <Typography variant="h6" color="primary" sx={{ mb: 1, mt: 1 }}>
+        Rémunération
+      </Typography>
       <BooleanInput source="paid" label="Stage payé" defaultValue={false} />
       {paid && (
         <NumberInput
@@ -87,7 +101,7 @@ const StagiaireForm = () => {
 
 export const StagiaireCreate = () => (
   <Create title="Créer un stagiaire" redirect="list">
-    <SimpleForm>
+    <SimpleForm sx={{ "& .RaSimpleForm-form": { gap: 2 } }}>
       <StagiaireForm />
     </SimpleForm>
   </Create>

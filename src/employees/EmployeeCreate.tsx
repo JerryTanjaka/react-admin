@@ -10,6 +10,7 @@ import {
   minValue,
   email,
 } from "react-admin";
+import { Typography, Divider } from "@mui/material";
 
 const departmentChoices = [
   { id: "Informatique", name: "Informatique" },
@@ -19,23 +20,25 @@ const departmentChoices = [
 ];
 
 export const EmployeeCreate = () => (
-  <Create
-    title="Créer un employé"
-    redirect="list"  
-  >
-    <SimpleForm>
-      <TextInput
-        source="firstname"
-        label="Prénom"
-        validate={[required("Le prénom est obligatoire")]}
-        fullWidth
-      />
-      <TextInput
-        source="lastname"
-        label="Nom"
-        validate={[required("Le nom est obligatoire")]}
-        fullWidth
-      />
+  <Create title="Créer un employé" redirect="list">
+    <SimpleForm sx={{ "& .RaSimpleForm-form": { gap: 2 } }}>
+      <Typography variant="h6" color="primary" sx={{ mb: 1, mt: 1 }}>
+        Informations personnelles
+      </Typography>
+      <div style={{ display: "flex", gap: 16 }}>
+        <TextInput
+          source="firstname"
+          label="Prénom"
+          validate={[required("Le prénom est obligatoire")]}
+          sx={{ flex: 1 }}
+        />
+        <TextInput
+          source="lastname"
+          label="Nom"
+          validate={[required("Le nom est obligatoire")]}
+          sx={{ flex: 1 }}
+        />
+      </div>
       <TextInput
         source="email"
         label="Email"
@@ -45,6 +48,10 @@ export const EmployeeCreate = () => (
         ]}
         fullWidth
       />
+      <Divider sx={{ my: 1 }} />
+      <Typography variant="h6" color="primary" sx={{ mb: 1, mt: 1 }}>
+        Poste et salaire
+      </Typography>
       <SelectInput
         source="department"
         label="Département"
@@ -61,11 +68,8 @@ export const EmployeeCreate = () => (
         ]}
         fullWidth
       />
-      <BooleanInput
-        source="active"
-        label="Employé actif"
-        defaultValue={true}
-      />
+      <Divider sx={{ my: 1 }} />
+      <BooleanInput source="active" label="Employé actif" defaultValue={true} />
     </SimpleForm>
   </Create>
 );
