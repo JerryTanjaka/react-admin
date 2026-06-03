@@ -1,9 +1,9 @@
 import type { RaThemeOptions } from "react-admin";
-import { deepmerge } from "@mui/utils";
 
-const baseTheme = {
+const baseTheme: RaThemeOptions = {
   typography: {
     h6: { fontWeight: 600 },
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
   },
   sidebar: {
     width: 240,
@@ -24,6 +24,7 @@ const baseTheme = {
         root: {
           textTransform: "none",
           borderRadius: 8,
+          fontWeight: 500,
         },
       },
     },
@@ -46,26 +47,32 @@ const baseTheme = {
   },
 };
 
-export const lightTheme: RaThemeOptions = deepmerge(baseTheme, {
+export const lightTheme: RaThemeOptions = {
+  ...baseTheme,
   palette: {
     mode: "light",
     primary: {
-      main: "#1976d2",
-      light: "#42a5f5",
-      dark: "#1565c0",
-    },
-    secondary: {
       main: "#7c4dff",
       light: "#b47cff",
-      dark: "#3f1dcb",
+      dark: "#4a1cb5",
+    },
+    secondary: {
+      main: "#00bfa5",
+      light: "#5df2d6",
+      dark: "#008e76",
     },
     background: {
-      default: "#f5f7fa",
+      default: "#f5f6fa",
       paper: "#ffffff",
     },
-    divider: "rgba(0, 0, 0, 0.08)",
+    divider: "rgba(0, 0, 0, 0.07)",
+    text: {
+      primary: "#1a1a2e",
+      secondary: "rgba(26, 26, 46, 0.65)",
+    },
   },
   components: {
+    ...baseTheme.components,
     MuiPaper: {
       styleOverrides: {
         root: {
@@ -76,9 +83,10 @@ export const lightTheme: RaThemeOptions = deepmerge(baseTheme, {
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)",
+          borderRadius: 12,
+          boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
           "&:hover": {
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 12px rgba(124, 77, 255, 0.08)",
           },
         },
       },
@@ -86,8 +94,38 @@ export const lightTheme: RaThemeOptions = deepmerge(baseTheme, {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: "linear-gradient(135deg, #1565c0 0%, #1976d2 50%, #42a5f5 100%)",
-          boxShadow: "0 2px 8px rgba(21, 101, 192, 0.3)",
+          backgroundColor: "#ffffff",
+          color: "#1a1a2e",
+          boxShadow: "none",
+          borderBottom: "1px solid rgba(0,0,0,0.06)",
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: "#ffffff",
+          borderRight: "1px solid rgba(0,0,0,0.06)",
+        },
+      },
+    },
+    RaMenuItemLink: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          margin: "2px 8px",
+          color: "rgba(26, 26, 46, 0.7)",
+          "&:hover": {
+            backgroundColor: "rgba(124, 77, 255, 0.06)",
+            color: "#7c4dff",
+          },
+          "&.RaMenuItemLink-active": {
+            backgroundColor: "rgba(124, 77, 255, 0.1)",
+            color: "#7c4dff",
+            "&:hover": {
+              backgroundColor: "rgba(124, 77, 255, 0.14)",
+            },
+          },
         },
       },
     },
@@ -98,61 +136,52 @@ export const lightTheme: RaThemeOptions = deepmerge(baseTheme, {
         },
       },
     },
-    RaSidebar: {
-      styleOverrides: {
-        root: {
-          "& .MuiDrawer-paper": {
-            background: "#ffffff",
-            borderRight: "1px solid rgba(0,0,0,0.06)",
-          },
-        },
-      },
-    },
   },
-});
+};
 
-export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
+export const darkTheme: RaThemeOptions = {
+  ...baseTheme,
   palette: {
     mode: "dark",
     primary: {
-      main: "#00b4ff",
-      light: "#56cfff",
-      dark: "#0084c7",
+      main: "#b388ff",
+      light: "#d4bfff",
+      dark: "#7c4dff",
     },
     secondary: {
-      main: "#7c4dff",
-      light: "#b47cff",
-      dark: "#3f1dcb",
+      main: "#64ffda",
+      light: "#9effeb",
+      dark: "#00bfa5",
     },
     background: {
-      default: "#0a0e27",
-      paper: "#131838",
+      default: "#0f0f1a",
+      paper: "#1a1a2e",
     },
     divider: "rgba(255, 255, 255, 0.06)",
     text: {
-      primary: "#e8eaed",
-      secondary: "rgba(232, 234, 237, 0.7)",
+      primary: "#e8eaf0",
+      secondary: "rgba(232, 234, 240, 0.65)",
     },
   },
   components: {
+    ...baseTheme.components,
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundImage: "none",
-          backgroundColor: "#131838",
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          background: "linear-gradient(135deg, rgba(19, 24, 56, 0.9) 0%, rgba(26, 35, 80, 0.9) 100%)",
-          backdropFilter: "blur(12px)",
-          border: "1px solid rgba(0, 180, 255, 0.1)",
-          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 180, 255, 0.05)",
+          borderRadius: 12,
+          backgroundColor: "#1a1a2e",
+          border: "1px solid rgba(179, 136, 255, 0.08)",
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
           "&:hover": {
-            border: "1px solid rgba(0, 180, 255, 0.25)",
-            boxShadow: "0 6px 24px rgba(0, 180, 255, 0.15), 0 0 0 1px rgba(0, 180, 255, 0.1)",
+            borderColor: "rgba(179, 136, 255, 0.2)",
+            boxShadow: "0 6px 24px rgba(179, 136, 255, 0.06)",
           },
         },
       },
@@ -160,17 +189,18 @@ export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: "linear-gradient(135deg, #0a0e27 0%, #131838 50%, #1a2350 100%)",
-          borderBottom: "1px solid rgba(0, 180, 255, 0.15)",
-          boxShadow: "0 2px 16px rgba(0, 180, 255, 0.08)",
+          backgroundColor: "#151528",
+          color: "#e8eaf0",
+          boxShadow: "none",
+          borderBottom: "1px solid rgba(179, 136, 255, 0.1)",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          background: "linear-gradient(180deg, #0a0e27 0%, #131838 100%)",
-          borderRight: "1px solid rgba(0, 180, 255, 0.1)",
+          backgroundColor: "#151528",
+          borderRight: "1px solid rgba(179, 136, 255, 0.06)",
         },
       },
     },
@@ -178,8 +208,8 @@ export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
       styleOverrides: {
         root: {
           "& .MuiTableCell-root": {
-            backgroundColor: "rgba(0, 180, 255, 0.05)",
-            borderBottom: "1px solid rgba(0, 180, 255, 0.1)",
+            backgroundColor: "rgba(179, 136, 255, 0.04)",
+            borderBottom: "1px solid rgba(179, 136, 255, 0.08)",
           },
         },
       },
@@ -187,7 +217,7 @@ export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
     MuiTableCell: {
       styleOverrides: {
         root: {
-          borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
         },
       },
     },
@@ -196,36 +226,10 @@ export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
         root: {
           backgroundColor: "rgba(255, 255, 255, 0.04)",
           "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.08)",
+            backgroundColor: "rgba(255, 255, 255, 0.07)",
           },
           "&$focused": {
-            backgroundColor: "rgba(255, 255, 255, 0.06)",
-          },
-        },
-      },
-    },
-    MuiMenuItem: {
-      styleOverrides: {
-        root: {
-          "&:hover": {
-            backgroundColor: "rgba(0, 180, 255, 0.08)",
-          },
-        },
-      },
-    },
-    RaToolbar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "transparent",
-        },
-      },
-    },
-    RaSidebar: {
-      styleOverrides: {
-        root: {
-          "& .MuiDrawer-paper": {
-            background: "linear-gradient(180deg, #0a0e27 0%, #131838 100%)",
-            borderRight: "1px solid rgba(0, 180, 255, 0.1)",
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
           },
         },
       },
@@ -235,14 +239,27 @@ export const darkTheme: RaThemeOptions = deepmerge(baseTheme, {
         root: {
           borderRadius: 8,
           margin: "2px 8px",
+          color: "rgba(232, 234, 240, 0.65)",
+          "&:hover": {
+            backgroundColor: "rgba(179, 136, 255, 0.08)",
+            color: "#b388ff",
+          },
           "&.RaMenuItemLink-active": {
-            backgroundColor: "rgba(0, 180, 255, 0.12)",
+            backgroundColor: "rgba(179, 136, 255, 0.12)",
+            color: "#b388ff",
             "&:hover": {
-              backgroundColor: "rgba(0, 180, 255, 0.18)",
+              backgroundColor: "rgba(179, 136, 255, 0.18)",
             },
           },
         },
       },
     },
+    RaToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "transparent",
+        },
+      },
+    },
   },
-});
+};
