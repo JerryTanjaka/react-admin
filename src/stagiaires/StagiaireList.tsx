@@ -8,6 +8,7 @@ import {
   BooleanField,
   ReferenceField,
   FunctionField,
+  ReferenceInput,
   SearchInput,
   SelectInput,
   EditButton,
@@ -16,16 +17,9 @@ import {
 
 const stagiaireFilters = [
   <SearchInput source="q" alwaysOn />,
-  <SelectInput
-    source="department"
-    label="Département"
-    choices={[
-      { id: "Informatique", name: "Informatique" },
-      { id: "Marketing", name: "Marketing" },
-      { id: "RH", name: "RH" },
-      { id: "Finance", name: "Finance" },
-    ]}
-  />,
+  <ReferenceInput source="department" reference="departments" label="Département">
+    <SelectInput optionText="name" />
+  </ReferenceInput>,
   <SelectInput
     source="paid"
     label="Rémunéré"
@@ -37,12 +31,7 @@ const stagiaireFilters = [
 ];
 
 export const StagiaireList = () => (
-  <List
-    filters={stagiaireFilters}
-    perPage={5}
-    sort={{ field: "id", order: "ASC" }}
-    title="Liste des Stagiaires"
-  >
+  <List filters={stagiaireFilters}>
     <Datagrid rowClick="show">
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />

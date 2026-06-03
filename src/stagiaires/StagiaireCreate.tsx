@@ -9,11 +9,14 @@ import {
   SelectInput,
   required,
   email,
+  useWatch,
 } from "react-admin";
 
-export const StagiaireCreate = () => (
-  <Create title="Créer un stagiaire" redirect="list">
-    <SimpleForm>
+const StagiaireForm = () => {
+  const paid = useWatch({ name: "paid" });
+
+  return (
+    <>
       <TextInput
         source="firstname"
         label="Prénom"
@@ -54,12 +57,22 @@ export const StagiaireCreate = () => (
         />
       </ReferenceInput>
       <BooleanInput source="paid" label="Stage payé" defaultValue={false} />
-      <NumberInput
-        source="salary"
-        label="Salaire (€)"
-        defaultValue={0}
-        fullWidth
-      />
+      {paid && (
+        <NumberInput
+          source="salary"
+          label="Salaire (€)"
+          defaultValue={0}
+          fullWidth
+        />
+      )}
+    </>
+  );
+};
+
+export const StagiaireCreate = () => (
+  <Create title="Créer un stagiaire" redirect="list">
+    <SimpleForm>
+      <StagiaireForm />
     </SimpleForm>
   </Create>
 );

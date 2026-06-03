@@ -10,6 +10,7 @@ import {
   required,
   email,
   useRecordContext,
+  useWatch,
 } from "react-admin";
 
 const StagiaireTitle = () => {
@@ -18,9 +19,11 @@ const StagiaireTitle = () => {
   return <span>Modifier : {record.firstname} {record.lastname}</span>;
 };
 
-export const StagiaireEdit = () => (
-  <Edit title={<StagiaireTitle />}>
-    <SimpleForm>
+const StagiaireForm = () => {
+  const paid = useWatch({ name: "paid" });
+
+  return (
+    <>
       <TextInput
         source="firstname"
         label="Prénom"
@@ -61,11 +64,21 @@ export const StagiaireEdit = () => (
         />
       </ReferenceInput>
       <BooleanInput source="paid" label="Stage payé" />
-      <NumberInput
-        source="salary"
-        label="Salaire (€)"
-        fullWidth
-      />
+      {paid && (
+        <NumberInput
+          source="salary"
+          label="Salaire (€)"
+          fullWidth
+        />
+      )}
+    </>
+  );
+};
+
+export const StagiaireEdit = () => (
+  <Edit title={<StagiaireTitle />}>
+    <SimpleForm>
+      <StagiaireForm />
     </SimpleForm>
   </Edit>
 );
