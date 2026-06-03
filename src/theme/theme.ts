@@ -170,14 +170,11 @@ export const lightTheme: RaThemeOptions = {
         },
       },
     },
-    MuiDrawer: {
+    RaSidebar: {
       styleOverrides: {
         paper: {
           backgroundColor: "#0f172a",
           borderRight: "none",
-          "& .MuiTypography-root, & .MuiListItemText-root": {
-            color: "#cbd5e1",
-          },
         },
       },
     },
@@ -238,7 +235,7 @@ export const lightTheme: RaThemeOptions = {
           borderRadius: 10,
           backgroundColor: "rgba(0,0,0,0.03)",
           "&:hover": { backgroundColor: "rgba(0,0,0,0.05)" },
-          "&$focused": { backgroundColor: "rgba(99, 102, 241, 0.04)" },
+          "&.Mui-focused": { backgroundColor: "rgba(99, 102, 241, 0.04)" },
         },
         input: {
           padding: "10px 14px",
@@ -249,7 +246,7 @@ export const lightTheme: RaThemeOptions = {
       styleOverrides: {
         filled: {
           transform: "translate(14px, 12px) scale(1)",
-          "&$shrink": { transform: "translate(14px, -8px) scale(0.75)" },
+          "&.MuiInputLabel-shrink": { transform: "translate(14px, -8px) scale(0.75)" },
         },
       },
     },
@@ -316,17 +313,6 @@ export const lightTheme: RaThemeOptions = {
           },
           "& .RaDatagrid-headerCell": {
             padding: "12px 16px",
-          },
-        },
-      },
-    },
-    RaList: {
-      styleOverrides: {
-        root: {
-          "& .RaList-content": {
-            boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-            borderRadius: 14,
-            border: "1px solid rgba(0,0,0,0.08)",
           },
         },
       },
@@ -437,7 +423,7 @@ export const darkTheme: RaThemeOptions = {
         },
       },
     },
-    MuiDrawer: {
+    RaSidebar: {
       styleOverrides: {
         paper: {
           backgroundColor: "#0a0a14",
@@ -511,7 +497,7 @@ export const darkTheme: RaThemeOptions = {
           borderRadius: 10,
           backgroundColor: "rgba(255,255,255,0.04)",
           "&:hover": { backgroundColor: "rgba(255,255,255,0.07)" },
-          "&$focused": {
+          "&.Mui-focused": {
             backgroundColor: "rgba(56, 189, 248, 0.05)",
             boxShadow: "0 0 0 2px rgba(56, 189, 248, 0.08)",
           },
@@ -525,7 +511,7 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         filled: {
           transform: "translate(14px, 12px) scale(1)",
-          "&$shrink": { transform: "translate(14px, -8px) scale(0.75)" },
+          "&.MuiInputLabel-shrink": { transform: "translate(14px, -8px) scale(0.75)" },
         },
       },
     },
@@ -533,7 +519,7 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 10,
-          "&$focused .MuiOutlinedInput-notchedOutline": {
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: "rgba(56, 189, 248, 0.5)",
           },
         },
@@ -622,19 +608,6 @@ export const darkTheme: RaThemeOptions = {
           },
           "& .RaDatagrid-row:hover": {
             backgroundColor: "rgba(56, 189, 248, 0.03)",
-          },
-        },
-      },
-    },
-    RaList: {
-      styleOverrides: {
-        root: {
-          "& .RaList-content": {
-            boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
-            borderRadius: 14,
-            border: "1px solid rgba(255,255,255,0.06)",
-            background: "rgba(14, 14, 24, 0.85)",
-            backdropFilter: "blur(20px)",
           },
         },
       },
