@@ -13,6 +13,12 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
+import PeopleIcon from "@mui/icons-material/People";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import BlockIcon from "@mui/icons-material/Block";
+import SchoolIcon from "@mui/icons-material/School";
+import EuroIcon from "@mui/icons-material/Euro";
+import MoneyOffIcon from "@mui/icons-material/MoneyOff";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -44,37 +50,42 @@ export const Dashboard = () => {
 
   const stats = [
     {
-      label: "👥 Employés",
+      label: "Employés",
       value: totalEmployees ?? 0,
       color: "#1976d2",
+      icon: PeopleIcon,
       to: "/employees",
     },
     {
-      label: "✅ Actifs",
+      label: "Actifs",
       value: activeEmployees ?? 0,
       color: "#388e3c",
+      icon: CheckCircleIcon,
       to: "/employees?filter=%7B%22active%22%3Atrue%7D",
     },
     {
-      label: "⛔ Inactifs",
+      label: "Inactifs",
       value: (totalEmployees ?? 0) - (activeEmployees ?? 0),
       color: "#d32f2f",
+      icon: BlockIcon,
       to: "/employees?filter=%7B%22active%22%3Afalse%7D",
     },
     {
-      label: "🎓 Stagiaires",
+      label: "Stagiaires",
       value: totalInterns ?? 0,
       color: "#f57c00",
+      icon: SchoolIcon,
       to: "/interns",
     },
     {
-      label: "💰 Stagiaires payés",
+      label: "Stagiaires payés",
       value: paidInterns ?? 0,
       color: "#7b1fa2",
+      icon: EuroIcon,
       to: "/interns?filter=%7B%22paid%22%3Atrue%7D",
     },
     {
-      label: "🕐 Stagiaires non payés",
+      label: "Stagiaires non payés",
       value: (totalInterns ?? 0) - (paidInterns ?? 0),
       color: "#9e9e9e",
       to: "/interns?filter=%7B%22paid%22%3Afalse%7D",
@@ -90,6 +101,7 @@ export const Dashboard = () => {
           <Card key={stat.label} sx={{ flex: 1 }}>
             <CardActionArea onClick={() => navigate(stat.to)}>
               <CardContent>
+                <stat.icon sx={{ fontSize: 32, color: stat.color, mb: 0.5 }} />
                 <Typography variant="h3" color={stat.color} fontWeight="bold">
                   {stat.value}
                 </Typography>
