@@ -7,11 +7,12 @@ import {
   TextField,
   EmailField,
   NumberField,
-  BooleanField,
+  FunctionField,
   TopToolbar,
   ListButton,
   EditButton,
 } from "react-admin";
+import { Chip } from "@mui/material";
 
 const EmployeeShowActions = () => (
   <TopToolbar>
@@ -21,26 +22,31 @@ const EmployeeShowActions = () => (
 );
 
 export const EmployeeShow = () => (
-  <Show
-    title="Fiche employé"
-    actions={<EmployeeShowActions />}
-  >
-
+  <Show title="Fiche employé" actions={<EmployeeShowActions />}>
     <TabbedShowLayout>
       <Tab label="Informations personnelles">
-        <TextField source="id" label="ID" />
         <TextField source="firstname" label="Prénom" />
         <TextField source="lastname" label="Nom" />
         <EmailField source="email" label="Email" />
+        <TextField source="department" label="Département" />
       </Tab>
       <Tab label="Employé">
-        <TextField source="department" label="Département" />
         <NumberField
           source="salary"
           label="Salaire"
           options={{ style: "currency", currency: "EUR" }}
+          sx={{ fontSize: "1.2rem", fontWeight: 600, color: "primary.main" }}
         />
-        <BooleanField source="active" label="Actif" />
+        <FunctionField
+          label="Statut"
+          render={(record: { active: boolean }) =>
+            record.active ? (
+              <Chip label="Actif" color="success" size="small" />
+            ) : (
+              <Chip label="Inactif" color="default" size="small" />
+            )
+          }
+        />
       </Tab>
     </TabbedShowLayout>
   </Show>
