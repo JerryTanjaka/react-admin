@@ -11,9 +11,13 @@ import {
   ReferenceInput,
   SearchInput,
   SelectInput,
+  TopToolbar,
+  CreateButton,
   EditButton,
   DeleteButton,
 } from "react-admin";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const stagiaireFilters = [
   <SearchInput source="q" alwaysOn />,
@@ -30,8 +34,20 @@ const stagiaireFilters = [
   />,
 ];
 
+const StagiaireQuickActions = () => (
+  <TopToolbar>
+    <CreateButton label="Ajouter un stagiaire" />
+    <Button component={Link} to="/employees" variant="contained" size="small">
+      Voir employés
+    </Button>
+    <Button component={Link} to="/employees/create" variant="contained" size="small">
+      Ajouter un employé
+    </Button>
+  </TopToolbar>
+);
+
 export const StagiaireList = () => (
-  <List filters={stagiaireFilters}>
+  <List actions={<StagiaireQuickActions />} filters={stagiaireFilters}>
     <Datagrid rowClick="show">
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />

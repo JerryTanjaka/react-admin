@@ -8,9 +8,13 @@ import {
   BooleanField,
   SearchInput,
   SelectInput,
+  TopToolbar,
+  CreateButton,
   EditButton,
   DeleteButton,
 } from "react-admin";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const employeeFilters = [
 
@@ -28,8 +32,21 @@ const employeeFilters = [
   />,
 ];
 
+const EmployeeQuickActions = () => (
+  <TopToolbar>
+    <CreateButton label="Ajouter un employé" />
+    <Button component={Link} to="/interns" variant="contained" size="small">
+      Voir stagiaires
+    </Button>
+    <Button component={Link} to="/interns/create" variant="contained" size="small">
+      Ajouter un stagiaire
+    </Button>
+  </TopToolbar>
+);
+
 export const EmployeeList = () => (
   <List
+    actions={<EmployeeQuickActions />}
     filters={employeeFilters}
     perPage={5}
     sort={{ field: "id", order: "ASC" }}
