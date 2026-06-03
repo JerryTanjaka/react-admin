@@ -1,9 +1,21 @@
 {
   "departments": [
-    { "id": "Informatique", "name": "Informatique" },
-    { "id": "Marketing", "name": "Marketing" },
-    { "id": "RH", "name": "RH" },
-    { "id": "Finance", "name": "Finance" }
+    {
+      "id": "Informatique",
+      "name": "Informatique"
+    },
+    {
+      "id": "Marketing",
+      "name": "Marketing"
+    },
+    {
+      "id": "RH",
+      "name": "RH"
+    },
+    {
+      "id": "Finance",
+      "name": "Finance"
+    }
   ],
   "interns": [
     {
@@ -17,14 +29,9 @@
       "salary": 1200
     },
     {
-      "id": 2,
-      "firstname": "Sara",
-      "lastname": "Benali",
-      "email": "sara@company.com",
-      "department": "Marketing",
-      "mentorId": 2,
-      "paid": false,
-      "salary": 0
+      "paid": true,
+      "salary": 1200,
+      "id": 2
     },
     {
       "id": 3,

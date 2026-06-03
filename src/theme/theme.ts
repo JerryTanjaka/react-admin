@@ -16,10 +16,10 @@ const baseOverrides = {
     defaultProps: { fullWidth: true },
   },
   MuiTextField: {
-    defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
+    defaultProps: { variant: "filled", size: "small", fullWidth: true },
   },
   MuiFormControl: {
-    defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
+    defaultProps: { size: "small", fullWidth: true },
   },
   MuiButton: {
     styleOverrides: {
@@ -304,6 +304,21 @@ export const lightTheme: RaThemeOptions = {
     RaToolbar: {
       styleOverrides: {
         root: { backgroundColor: "transparent" },
+      },
+    },
+    RaList: {
+      styleOverrides: {
+        root: {
+          overflowX: "hidden",
+        },
+      },
+    },
+    RaListToolbar: {
+      styleOverrides: {
+        root: {
+          padding: "12px 16px 0",
+          backgroundColor: "transparent",
+        },
       },
     },
     RaDatagrid: {
@@ -596,6 +611,21 @@ export const darkTheme: RaThemeOptions = {
               backgroundColor: "rgba(56, 189, 248, 0.14)",
             },
           },
+        },
+      },
+    },
+    RaList: {
+      styleOverrides: {
+        root: {
+          overflowX: "hidden",
+        },
+      },
+    },
+    RaListToolbar: {
+      styleOverrides: {
+        root: {
+          padding: "12px 16px 0",
+          backgroundColor: "transparent",
         },
       },
     },
