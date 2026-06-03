@@ -8,15 +8,6 @@
       "mentorId": 1,
       "paid": true,
       "salary": 1200
-    },
-    {
-      "id": 2,
-      "firstname": "Sara",
-      "lastname": "Benali",
-      "email": "sara@company.com",
-      "mentorId": 2,
-      "paid": false,
-      "salary": 0
     }
   ],
   "employees": [
