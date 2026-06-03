@@ -1,4 +1,4 @@
-import { RaThemeOptions } from "react-admin";
+import type { RaThemeOptions } from "react-admin";
 import { deepmerge } from "@mui/utils";
 
 const baseTheme = {

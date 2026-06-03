@@ -13,6 +13,7 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
+import type { ComponentType } from "react";
 import PeopleIcon from "@mui/icons-material/People";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import BlockIcon from "@mui/icons-material/Block";
@@ -48,7 +49,14 @@ export const Dashboard = () => {
   const totalSalary = employees?.reduce((sum, e) => sum + e.salary, 0) ?? 0;
   const paidInternSalary = interns?.filter((i) => i.paid).reduce((sum, i) => sum + i.salary, 0) ?? 0;
 
-  const stats = [
+  type StatItem = {
+    label: string;
+    value: number;
+    color: string;
+    icon: ComponentType<{ sx?: object }>;
+    to: string;
+  };
+  const stats: StatItem[] = [
     {
       label: "Employés",
       value: totalEmployees ?? 0,
@@ -88,6 +96,7 @@ export const Dashboard = () => {
       label: "Stagiaires non payés",
       value: (totalInterns ?? 0) - (paidInterns ?? 0),
       color: "#9e9e9e",
+      icon: MoneyOffIcon,
       to: "/interns?filter=%7B%22paid%22%3Afalse%7D",
     },
   ];
