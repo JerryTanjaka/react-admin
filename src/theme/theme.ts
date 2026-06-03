@@ -62,7 +62,7 @@ export const lightTheme: RaThemeOptions = {
       dark: "#008e76",
     },
     background: {
-      default: "#f5f6fa",
+      default: "#f0eef8",
       paper: "#ffffff",
     },
     divider: "rgba(0, 0, 0, 0.07)",
@@ -84,9 +84,9 @@ export const lightTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+          boxShadow: "0 1px 3px rgba(124,77,255,0.06), 0 1px 2px rgba(124,77,255,0.04)",
           "&:hover": {
-            boxShadow: "0 4px 12px rgba(124, 77, 255, 0.08)",
+            boxShadow: "0 4px 16px rgba(124, 77, 255, 0.1)",
           },
         },
       },
@@ -94,18 +94,28 @@ export const lightTheme: RaThemeOptions = {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#ffffff",
+          background: "linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%)",
           color: "#1a1a2e",
           boxShadow: "none",
-          borderBottom: "1px solid rgba(0,0,0,0.06)",
+          borderBottom: "2px solid rgba(124, 77, 255, 0.15)",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#ffffff",
-          borderRight: "1px solid rgba(0,0,0,0.06)",
+          backgroundColor: "#faf9ff",
+          borderRight: "1px solid rgba(124, 77, 255, 0.08)",
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          "& .MuiTableCell-root": {
+            backgroundColor: "rgba(124, 77, 255, 0.04)",
+            fontWeight: 600,
+          },
         },
       },
     },
@@ -116,14 +126,15 @@ export const lightTheme: RaThemeOptions = {
           margin: "2px 8px",
           color: "rgba(26, 26, 46, 0.7)",
           "&:hover": {
-            backgroundColor: "rgba(124, 77, 255, 0.06)",
+            backgroundColor: "rgba(124, 77, 255, 0.08)",
             color: "#7c4dff",
           },
           "&.RaMenuItemLink-active": {
-            backgroundColor: "rgba(124, 77, 255, 0.1)",
+            backgroundColor: "rgba(124, 77, 255, 0.12)",
             color: "#7c4dff",
+            borderLeft: "3px solid #7c4dff",
             "&:hover": {
-              backgroundColor: "rgba(124, 77, 255, 0.14)",
+              backgroundColor: "rgba(124, 77, 255, 0.16)",
             },
           },
         },
