@@ -14,59 +14,11 @@ import {
   CreateButton,
   EditButton,
   DeleteButton,
-  useCreate,
-  useUpdate,
-  useRecordContext,
 } from "react-admin";
 import { Button, Chip } from "@mui/material";
-import { useNavigate, Link } from "react-router-dom";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import PaymentsIcon from "@mui/icons-material/Payments";
+import { Link } from "react-router-dom";
 import SchoolIcon from "@mui/icons-material/School";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-
-const DuplicateButton = () => {
-  const record = useRecordContext();
-  const [create] = useCreate();
-  const navigate = useNavigate();
-
-  if (!record) return null;
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    create("interns", { data: { ...record, id: undefined } }, {
-      onSuccess: () => navigate("/interns"),
-    });
-  };
-
-  return (
-    <Button size="small" startIcon={<ContentCopyIcon />} onClick={handleClick}>
-      Dupliquer
-    </Button>
-  );
-};
-
-const TogglePaidButton = () => {
-  const record = useRecordContext();
-  const [update] = useUpdate();
-
-  if (!record) return null;
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    update("interns", {
-      id: record.id,
-      data: { ...record, paid: !record.paid, salary: record.paid ? 0 : 1200 },
-      previousData: record,
-    });
-  };
-
-  return (
-    <Button size="small" startIcon={<PaymentsIcon />} onClick={handleClick}>
-      {record.paid ? "Non payé" : "Payé"}
-    </Button>
-  );
-};
 
 const stagiaireFilters = [
   <SearchInput source="q" alwaysOn variant="outlined" />,
@@ -135,8 +87,6 @@ export const StagiaireList = () => (
         options={{ style: "currency", currency: "EUR" }}
       />
       <EditButton label="Modifier" />
-      <DuplicateButton />
-      <TogglePaidButton />
       <DeleteButton label="Supprimer" />
     </Datagrid>
   </List>
