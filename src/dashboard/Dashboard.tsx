@@ -59,7 +59,7 @@ export const Dashboard = () => {
       to: "/employees",
     },
     {
-      label: "Actifs",
+      label: "Employés actifs",
       value: activeEmployees ?? 0,
       color: theme.palette.success.main,
       bgColor: theme.palette.mode === "dark" ? "rgba(52, 211, 153, 0.08)" : "rgba(16, 185, 129, 0.08)",
@@ -67,7 +67,7 @@ export const Dashboard = () => {
       to: "/employees?filter=%7B%22active%22%3Atrue%7D",
     },
     {
-      label: "Inactifs",
+      label: "Employés inactifs",
       value: (totalEmployees ?? 0) - (activeEmployees ?? 0),
       color: theme.palette.error.main,
       bgColor: theme.palette.mode === "dark" ? "rgba(248, 113, 113, 0.08)" : "rgba(239, 68, 68, 0.08)",
@@ -83,7 +83,7 @@ export const Dashboard = () => {
       to: "/interns",
     },
     {
-      label: "Payés",
+      label: "Stagiaires payés",
       value: paidInterns ?? 0,
       color: theme.palette.success.main,
       bgColor: theme.palette.mode === "dark" ? "rgba(52, 211, 153, 0.08)" : "rgba(16, 185, 129, 0.08)",
@@ -91,7 +91,7 @@ export const Dashboard = () => {
       to: "/interns?filter=%7B%22paid%22%3Atrue%7D",
     },
     {
-      label: "Non payés",
+      label: "Stagiaires non payés",
       value: (totalInterns ?? 0) - (paidInterns ?? 0),
       color: theme.palette.text.secondary,
       bgColor: theme.palette.mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)",
