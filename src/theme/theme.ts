@@ -240,9 +240,9 @@ export const lightTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 10,
-          backgroundColor: "rgba(0,0,0,0.03)",
-          "&:hover": { backgroundColor: "rgba(0,0,0,0.05)" },
-          "&.Mui-focused": { backgroundColor: "rgba(99, 102, 241, 0.04)" },
+          backgroundColor: "rgba(0,0,0,0.06)",
+          "&:hover": { backgroundColor: "rgba(0,0,0,0.09)" },
+          "&.Mui-focused": { backgroundColor: "rgba(99, 102, 241, 0.06)" },
         },
         input: {
           padding: "10px 14px",
@@ -517,11 +517,11 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 10,
-          backgroundColor: "rgba(255,255,255,0.04)",
-          "&:hover": { backgroundColor: "rgba(255,255,255,0.07)" },
+          backgroundColor: "rgba(255,255,255,0.07)",
+          "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
           "&.Mui-focused": {
-            backgroundColor: "rgba(56, 189, 248, 0.05)",
-            boxShadow: "0 0 0 2px rgba(56, 189, 248, 0.08)",
+            backgroundColor: "rgba(56, 189, 248, 0.08)",
+            boxShadow: "0 0 0 2px rgba(56, 189, 248, 0.12)",
           },
         },
         input: {
