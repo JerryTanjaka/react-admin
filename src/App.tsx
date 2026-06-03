@@ -5,6 +5,10 @@ import { EmployeeList } from "./employees/EmployeeList";
 import { EmployeeCreate } from "./employees/EmployeeCreate";
 import { EmployeeEdit } from "./employees/EmployeeEdit";
 import { EmployeeShow } from "./employees/EmployeeShow";
+import { StagiaireList } from "./stagiaires/StagiaireList";
+import { StagiaireCreate } from "./stagiaires/StagiaireCreate";
+import { StagiaireEdit } from "./stagiaires/StagiaireEdit";
+import { StagiaireShow } from "./stagiaires/StagiaireShow";
 const dataProvider = jsonServerProvider("http://localhost:3002");
 
 function App() {
@@ -20,6 +24,14 @@ function App() {
         create={EmployeeCreate}
         edit={EmployeeEdit}
         show={EmployeeShow}
+      />
+      <Resource
+        name="interns"
+        options={{ label: "Stagiaires" }}
+        list={StagiaireList}
+        create={StagiaireCreate}
+        edit={StagiaireEdit}
+        show={StagiaireShow}
       />
     </Admin>
   );
