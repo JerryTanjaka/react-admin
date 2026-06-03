@@ -33,7 +33,7 @@ const DuplicateButton = () => {
     });
   };
 
-  return <Button label="Dupliquer" size="small" onClick={handleClick} />;
+  return <Button size="small" onClick={handleClick}>Dupliquer</Button>;
 };
 
 const TogglePaidButton = () => {
@@ -49,11 +49,9 @@ const TogglePaidButton = () => {
   };
 
   return (
-    <Button
-      label={record.paid ? "Passer non payé" : "Passer payé"}
-      size="small"
-      onClick={handleClick}
-    />
+    <Button size="small" onClick={handleClick}>
+      {record.paid ? "Passer non payé" : "Passer payé"}
+    </Button>
   );
 };
 
