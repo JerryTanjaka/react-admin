@@ -323,6 +323,7 @@ export const lightTheme: RaThemeOptions = {
     RaDatagrid: {
       styleOverrides: {
         root: {
+          overflowX: "auto",
           "& .RaDatagrid-rowOdd": {
             backgroundColor: "rgba(0,0,0,0.015)",
           },
@@ -635,6 +636,7 @@ export const darkTheme: RaThemeOptions = {
     RaDatagrid: {
       styleOverrides: {
         root: {
+          overflowX: "auto",
           "& .RaDatagrid-rowOdd": {
             backgroundColor: "rgba(255,255,255,0.012)",
           },

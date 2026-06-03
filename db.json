@@ -20,18 +20,23 @@
   "interns": [
     {
       "id": 1,
-      "firstname": "Léo",
-      "lastname": "Dubois",
-      "email": "leo@company.com",
+      "firstname": "Lucas",
+      "lastname": "Bernard",
+      "email": "lucas@company.com",
       "department": "Informatique",
       "mentorId": 1,
       "paid": true,
       "salary": 1200
     },
     {
+      "id": 2,
+      "firstname": "Sarah",
+      "lastname": "Dubois",
+      "email": "sarah@company.com",
+      "department": "Marketing",
+      "mentorId": 2,
       "paid": true,
-      "salary": 1200,
-      "id": 2
+      "salary": 1200
     },
     {
       "id": 3,
@@ -56,12 +61,12 @@
     {
       "id": 5,
       "firstname": "Hugo",
-      "lastname": "Klein",
+      "lastname": "Petit",
       "email": "hugo@company.com",
       "department": "RH",
-      "mentorId": 1,
-      "paid": true,
-      "salary": 1100
+      "mentorId": 3,
+      "paid": false,
+      "salary": 0
     }
   ],
   "employees": [
