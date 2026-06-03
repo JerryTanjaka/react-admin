@@ -76,6 +76,13 @@ const baseOverrides = {
       },
     },
   },
+  RaFilterForm: {
+    styleOverrides: {
+      root: {
+        "& .MuiFormControl-root": { minWidth: 180, width: "auto" },
+      },
+    },
+  },
 };
 
 export const lightTheme: RaThemeOptions = {
