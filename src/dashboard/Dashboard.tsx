@@ -60,7 +60,7 @@ export const Dashboard = () => {
     {
       label: "Employés",
       value: totalEmployees ?? 0,
-      color: "#7c4dff",
+      color: "#7c3aed",
       icon: PeopleIcon,
       to: "/employees",
     },

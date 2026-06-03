@@ -65,20 +65,7 @@ export const EmployeeList = () => (
     sort={{ field: "id", order: "ASC" }}
     title="Liste des Employés"
   >
-    <Datagrid
-      rowClick="show"
-      sx={{
-        "& .RaDatagrid-rowOdd": {
-          backgroundColor: "rgba(124, 77, 255, 0.03)",
-        },
-        "& .RaDatagrid-rowEven": {
-          backgroundColor: "transparent",
-        },
-        "& .RaDatagrid-row:hover": {
-          backgroundColor: "rgba(124, 77, 255, 0.06)",
-        },
-      }}
-    >
+    <Datagrid rowClick="show">
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <EmailField source="email" label="Email" />
