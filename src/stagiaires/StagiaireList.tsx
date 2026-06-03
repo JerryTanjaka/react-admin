@@ -7,13 +7,33 @@ import {
   NumberField,
   BooleanField,
   ReferenceField,
+  FunctionField,
   SearchInput,
+  SelectInput,
   EditButton,
   DeleteButton,
 } from "react-admin";
 
 const stagiaireFilters = [
   <SearchInput source="q" alwaysOn />,
+  <SelectInput
+    source="department"
+    label="Département"
+    choices={[
+      { id: "Informatique", name: "Informatique" },
+      { id: "Marketing", name: "Marketing" },
+      { id: "RH", name: "RH" },
+      { id: "Finance", name: "Finance" },
+    ]}
+  />,
+  <SelectInput
+    source="paid"
+    label="Rémunéré"
+    choices={[
+      { id: "true", name: "Payé" },
+      { id: "false", name: "Non payé" },
+    ]}
+  />,
 ];
 
 export const StagiaireList = () => (
@@ -27,8 +47,9 @@ export const StagiaireList = () => (
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <EmailField source="email" label="Email" />
+      <TextField source="department" label="Département" />
       <ReferenceField source="mentorId" reference="employees" label="Encadreur">
-        <TextField source="firstname" />
+        <FunctionField render={(record) => `${record.firstname} ${record.lastname}`} />
       </ReferenceField>
       <BooleanField source="paid" label="Payé" />
       <NumberField

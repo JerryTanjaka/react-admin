@@ -9,6 +9,7 @@ import {
   NumberField,
   BooleanField,
   ReferenceField,
+  FunctionField,
   TopToolbar,
   ListButton,
   EditButton,
@@ -29,6 +30,7 @@ export const StagiaireShow = () => (
         <TextField source="firstname" label="Prénom" />
         <TextField source="lastname" label="Nom" />
         <EmailField source="email" label="Email" />
+        <TextField source="department" label="Département" />
       </Tab>
       <Tab label="Stage">
         <BooleanField source="paid" label="Payé" />
@@ -38,7 +40,7 @@ export const StagiaireShow = () => (
           options={{ style: "currency", currency: "EUR" }}
         />
         <ReferenceField source="mentorId" reference="employees" label="Encadreur">
-          <TextField source="firstname" />
+          <FunctionField render={(record) => `${record.firstname} ${record.lastname}`} />
         </ReferenceField>
       </Tab>
     </TabbedShowLayout>

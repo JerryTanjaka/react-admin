@@ -35,6 +35,18 @@ export const StagiaireCreate = () => (
         ]}
         fullWidth
       />
+      <SelectInput
+        source="department"
+        label="Département"
+        choices={[
+          { id: "Informatique", name: "Informatique" },
+          { id: "Marketing", name: "Marketing" },
+          { id: "RH", name: "RH" },
+          { id: "Finance", name: "Finance" },
+        ]}
+        validate={[required("Le département est obligatoire")]}
+        fullWidth
+      />
       <ReferenceInput source="mentorId" reference="employees" label="Encadreur">
         <SelectInput
           optionText={(record) => `${record.firstname} ${record.lastname}`}
