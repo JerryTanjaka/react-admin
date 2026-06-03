@@ -32,7 +32,8 @@ const DuplicateButton = () => {
 
   if (!record) return null;
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     create("interns", { data: { ...record, id: undefined } }, {
       onSuccess: () => navigate("/interns"),
     });
@@ -51,10 +52,11 @@ const TogglePaidButton = () => {
 
   if (!record) return null;
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     update("interns", {
       id: record.id,
-      data: { paid: !record.paid, salary: record.paid ? 0 : 1200 },
+      data: { ...record, paid: !record.paid, salary: record.paid ? 0 : 1200 },
       previousData: record,
     });
   };
