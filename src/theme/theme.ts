@@ -188,56 +188,8 @@ export const lightTheme: RaThemeOptions = {
       styleOverrides: {
         paper: {
           backgroundColor: "#0f172a",
-          borderRight: "1px solid rgba(255,255,255,0.06)",
+          borderRight: "none",
         },
-      },
-    },
-    RaMenu: {
-      styleOverrides: {
-        root: { paddingTop: 8, paddingLeft: 12, paddingRight: 12 },
-      },
-    },
-    RaMenuItemLink: {
-      styleOverrides: {
-        root: {
-          color: "rgba(255,255,255,0.55)",
-          borderRadius: 8,
-          marginBottom: 2,
-          "&:hover": {
-            backgroundColor: "rgba(255,255,255,0.05)",
-            color: "rgba(255,255,255,0.85)",
-          },
-          [`&.RaMenuItemLink-active`]: {
-            color: "#ffffff",
-            backgroundColor: "rgba(255,255,255,0.08)",
-          },
-          [`& .RaMenuItemLink-icon`]: {
-            color: "inherit",
-            minWidth: 36,
-          },
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-          borderRadius: 10,
-          fontWeight: 600,
-          fontSize: "0.875rem",
-          padding: "6px 18px",
-          transition: "all 0.2s ease",
-        },
-        sizeSmall: { padding: "4px 14px", fontSize: "0.8125rem" },
-        containedPrimary: {
-          boxShadow: "0 2px 8px rgba(99, 102, 241, 0.25)",
-          "&:hover": {
-            boxShadow: "0 4px 16px rgba(99, 102, 241, 0.35)",
-            transform: "translateY(-1px)",
-          },
-        },
-      },
-    },
       },
     },
     MuiButton: {
@@ -504,33 +456,7 @@ export const darkTheme: RaThemeOptions = {
       styleOverrides: {
         paper: {
           backgroundColor: "#0a0a14",
-          borderRight: "1px solid rgba(255,255,255,0.04)",
-        },
-      },
-    },
-    RaMenu: {
-      styleOverrides: {
-        root: { paddingTop: 8, paddingLeft: 12, paddingRight: 12 },
-      },
-    },
-    RaMenuItemLink: {
-      styleOverrides: {
-        root: {
-          color: "rgba(255,255,255,0.45)",
-          borderRadius: 8,
-          marginBottom: 2,
-          "&:hover": {
-            backgroundColor: "rgba(255,255,255,0.04)",
-            color: "rgba(255,255,255,0.8)",
-          },
-          [`&.RaMenuItemLink-active`]: {
-            color: "#38bdf8",
-            backgroundColor: "rgba(56,189,248,0.08)",
-          },
-          [`& .RaMenuItemLink-icon`]: {
-            color: "inherit",
-            minWidth: 36,
-          },
+          borderRight: "1px solid rgba(255,255,255,0.03)",
         },
       },
     },
