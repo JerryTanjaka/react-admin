@@ -1,13 +1,45 @@
 import type { RaThemeOptions } from "react-admin";
 
+const baseComponents = {
+  MuiAutocomplete: {
+    defaultProps: { fullWidth: true },
+  },
+  MuiTextField: {
+    defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
+  },
+  MuiFormControl: {
+    defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
+  },
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        textTransform: "none",
+        borderRadius: 8,
+        fontWeight: 600,
+        fontSize: "0.875rem",
+      },
+    },
+  },
+  MuiCard: {
+    styleOverrides: {
+      root: { borderRadius: 12 },
+    },
+  },
+  MuiTableHead: {
+    styleOverrides: {
+      root: {
+        "& .MuiTableCell-root": { fontWeight: 600 },
+      },
+    },
+  },
+};
+
 export const lightTheme: RaThemeOptions = {
   typography: {
-    h6: { fontWeight: 600 },
+    h6: { fontWeight: 600, fontSize: "1rem" },
+    fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
-  sidebar: {
-    width: 240,
-    closedWidth: 56,
-  },
+  sidebar: { width: 256, closedWidth: 60 },
   palette: {
     mode: "light",
     primary: {
@@ -21,26 +53,36 @@ export const lightTheme: RaThemeOptions = {
       dark: "#0369a1",
     },
     background: {
-      default: "#f3f4f6",
+      default: "#f1f5f9",
       paper: "#ffffff",
     },
-    divider: "rgba(0, 0, 0, 0.08)",
+    divider: "rgba(0, 0, 0, 0.06)",
     text: {
-      primary: "#111827",
-      secondary: "#6b7280",
+      primary: "#0f172a",
+      secondary: "#475569",
     },
   },
   components: {
+    ...baseComponents,
     MuiPaper: {
       styleOverrides: {
-        root: { backgroundImage: "none" },
+        root: {
+          backgroundImage: "none",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)",
+        },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+          border: "1px solid rgba(0,0,0,0.04)",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+          transition: "box-shadow 0.2s, border-color 0.2s",
+          "&:hover": {
+            boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+            borderColor: "rgba(124, 58, 237, 0.15)",
+          },
         },
       },
     },
@@ -48,22 +90,20 @@ export const lightTheme: RaThemeOptions = {
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
-          color: "#111827",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+          color: "#0f172a",
+          boxShadow: "0 1px 0 rgba(0,0,0,0.06)",
+          backdropFilter: "blur(12px)",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#ffffff",
-          borderRight: "1px solid rgba(0,0,0,0.06)",
+          backgroundColor: "#0f172a",
+          borderRight: "none",
+          "& .MuiTypography-root": { color: "#cbd5e1" },
+          "& .MuiListItemText-root": { color: "#cbd5e1" },
         },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: { textTransform: "none", borderRadius: 8, fontWeight: 500 },
       },
     },
     MuiTableHead: {
@@ -71,38 +111,47 @@ export const lightTheme: RaThemeOptions = {
         root: {
           "& .MuiTableCell-root": {
             fontWeight: 600,
-            backgroundColor: "#f9fafb",
+            backgroundColor: "#f8fafc",
+            color: "#475569",
+            fontSize: "0.75rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
           },
         },
       },
     },
     MuiTableCell: {
       styleOverrides: {
-        root: { borderBottom: "1px solid rgba(0,0,0,0.06)" },
+        root: {
+          borderBottom: "1px solid rgba(0,0,0,0.04)",
+          fontSize: "0.875rem",
+        },
       },
     },
-    MuiTextField: {
-      defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
-    },
-    MuiFormControl: {
-      defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
-    },
-    MuiAutocomplete: {
-      defaultProps: { fullWidth: true },
+    MuiChip: {
+      styleOverrides: {
+        root: { fontWeight: 500, fontSize: "0.75rem" },
+      },
     },
     RaMenuItemLink: {
       styleOverrides: {
         root: {
           borderRadius: 8,
           margin: "2px 8px",
-          color: "#6b7280",
+          color: "#94a3b8",
+          "& .MuiSvgIcon-root": { color: "#64748b" },
           "&:hover": {
-            backgroundColor: "rgba(124, 58, 237, 0.06)",
-            color: "#7c3aed",
+            backgroundColor: "rgba(255,255,255,0.06)",
+            color: "#e2e8f0",
+            "& .MuiSvgIcon-root": { color: "#94a3b8" },
           },
           "&.RaMenuItemLink-active": {
-            backgroundColor: "rgba(124, 58, 237, 0.1)",
-            color: "#7c3aed",
+            backgroundColor: "rgba(124, 58, 237, 0.18)",
+            color: "#a78bfa",
+            "& .MuiSvgIcon-root": { color: "#a78bfa" },
+            "&:hover": {
+              backgroundColor: "rgba(124, 58, 237, 0.24)",
+            },
           },
         },
       },
@@ -112,17 +161,30 @@ export const lightTheme: RaThemeOptions = {
         root: { backgroundColor: "transparent" },
       },
     },
+    RaDatagrid: {
+      styleOverrides: {
+        root: {
+          "& .RaDatagrid-rowOdd": {
+            backgroundColor: "rgba(0,0,0,0.02)",
+          },
+          "& .RaDatagrid-rowEven": {
+            backgroundColor: "transparent",
+          },
+          "& .RaDatagrid-row:hover": {
+            backgroundColor: "rgba(124, 58, 237, 0.04)",
+          },
+        },
+      },
+    },
   },
 };
 
 export const darkTheme: RaThemeOptions = {
   typography: {
-    h6: { fontWeight: 600 },
+    h6: { fontWeight: 600, fontSize: "1rem" },
+    fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
-  sidebar: {
-    width: 240,
-    closedWidth: 56,
-  },
+  sidebar: { width: 256, closedWidth: 60 },
   palette: {
     mode: "dark",
     primary: {
@@ -136,52 +198,57 @@ export const darkTheme: RaThemeOptions = {
       dark: "#0ea5e9",
     },
     background: {
-      default: "#0f0f11",
-      paper: "#1a1a1d",
+      default: "#0b0b12",
+      paper: "#14141f",
     },
-    divider: "rgba(255, 255, 255, 0.08)",
+    divider: "rgba(255, 255, 255, 0.06)",
     text: {
-      primary: "#f3f4f6",
-      secondary: "#9ca3af",
+      primary: "#f1f5f9",
+      secondary: "#94a3b8",
     },
   },
   components: {
+    ...baseComponents,
     MuiPaper: {
       styleOverrides: {
-        root: { backgroundImage: "none" },
+        root: {
+          backgroundImage: "none",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+        },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          backgroundColor: "#1a1a1d",
-          border: "1px solid rgba(255,255,255,0.06)",
+          backgroundColor: "#14141f",
+          border: "1px solid rgba(255,255,255,0.04)",
           boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+          transition: "border-color 0.2s, box-shadow 0.2s",
+          "&:hover": {
+            borderColor: "rgba(167, 139, 250, 0.2)",
+            boxShadow: "0 4px 16px rgba(167, 139, 250, 0.04)",
+          },
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#1a1a1d",
-          color: "#f3f4f6",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.3)",
+          backgroundColor: "#14141f",
+          color: "#f1f5f9",
+          boxShadow: "none",
           borderBottom: "1px solid rgba(255,255,255,0.04)",
+          backdropFilter: "blur(12px)",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#151517",
-          borderRight: "1px solid rgba(255,255,255,0.04)",
+          backgroundColor: "#0f0f19",
+          borderRight: "1px solid rgba(255,255,255,0.03)",
         },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: { textTransform: "none", borderRadius: 8, fontWeight: 500 },
       },
     },
     MuiTableHead: {
@@ -189,32 +256,36 @@ export const darkTheme: RaThemeOptions = {
         root: {
           "& .MuiTableCell-root": {
             fontWeight: 600,
-            backgroundColor: "rgba(255,255,255,0.03)",
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
+            backgroundColor: "rgba(255,255,255,0.02)",
+            color: "#94a3b8",
+            fontSize: "0.75rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
           },
         },
       },
     },
     MuiTableCell: {
       styleOverrides: {
-        root: { borderBottom: "1px solid rgba(255,255,255,0.04)" },
+        root: {
+          borderBottom: "1px solid rgba(255,255,255,0.04)",
+          fontSize: "0.875rem",
+        },
       },
-    },
-    MuiTextField: {
-      defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
-    },
-    MuiFormControl: {
-      defaultProps: { variant: "filled", margin: "dense", size: "small", fullWidth: true },
-    },
-    MuiAutocomplete: {
-      defaultProps: { fullWidth: true },
     },
     MuiFilledInput: {
       styleOverrides: {
         root: {
           backgroundColor: "rgba(255,255,255,0.04)",
           "&:hover": { backgroundColor: "rgba(255,255,255,0.07)" },
+          "&$focused": { backgroundColor: "rgba(255,255,255,0.05)" },
         },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: { fontWeight: 500, fontSize: "0.75rem" },
       },
     },
     RaMenuItemLink: {
@@ -222,10 +293,11 @@ export const darkTheme: RaThemeOptions = {
         root: {
           borderRadius: 8,
           margin: "2px 8px",
-          color: "#9ca3af",
+          color: "#94a3b8",
           "&:hover": {
-            backgroundColor: "rgba(167, 139, 250, 0.08)",
+            backgroundColor: "rgba(167, 139, 250, 0.06)",
             color: "#a78bfa",
+            "& .MuiSvgIcon-root": { color: "#a78bfa" },
           },
           "&.RaMenuItemLink-active": {
             backgroundColor: "rgba(167, 139, 250, 0.12)",
@@ -237,6 +309,21 @@ export const darkTheme: RaThemeOptions = {
     RaToolbar: {
       styleOverrides: {
         root: { backgroundColor: "transparent" },
+      },
+    },
+    RaDatagrid: {
+      styleOverrides: {
+        root: {
+          "& .RaDatagrid-rowOdd": {
+            backgroundColor: "rgba(255,255,255,0.015)",
+          },
+          "& .RaDatagrid-rowEven": {
+            backgroundColor: "transparent",
+          },
+          "& .RaDatagrid-row:hover": {
+            backgroundColor: "rgba(167, 139, 250, 0.04)",
+          },
+        },
       },
     },
   },
