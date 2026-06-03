@@ -1,7 +1,7 @@
 
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import { Dashboard } from "./Dashboard";
+import { Dashboard } from "./dashboard/Dashboard";
 import { EmployeeList } from "./employees/EmployeeList";
 import { EmployeeCreate } from "./employees/EmployeeCreate";
 import { EmployeeEdit } from "./employees/EmployeeEdit";

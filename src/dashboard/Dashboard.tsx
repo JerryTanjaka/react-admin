@@ -1,6 +1,6 @@
 
-import { useGetList, Card, CardContent, Title } from "react-admin";
-import { Stack, Typography } from "@mui/material";
+import { useGetList, Title } from "react-admin";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 
 export const Dashboard = () => {
   const { total: totalEmployees } = useGetList("employees");
