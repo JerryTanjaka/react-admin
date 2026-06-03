@@ -10,8 +10,6 @@ import {
   ReferenceInput,
   SearchInput,
   SelectInput,
-  Filter,
-  FilterButton,
   TopToolbar,
   CreateButton,
   EditButton,
@@ -68,26 +66,23 @@ const TogglePaidButton = () => {
   );
 };
 
-const StagiaireFilters = () => (
-  <Filter>
-    <SearchInput source="q" alwaysOn />
-    <ReferenceInput source="department" reference="departments" label="Département">
-      <SelectInput optionText="name" />
-    </ReferenceInput>
-    <SelectInput
-      source="paid"
-      label="Rémunéré"
-      choices={[
-        { id: "true", name: "Payé" },
-        { id: "false", name: "Non payé" },
-      ]}
-    />
-  </Filter>
-);
+const stagiaireFilters = [
+  <SearchInput source="q" alwaysOn />,
+  <ReferenceInput source="department" reference="departments" label="Département">
+    <SelectInput optionText="name" />
+  </ReferenceInput>,
+  <SelectInput
+    source="paid"
+    label="Rémunéré"
+    choices={[
+      { id: "true", name: "Payé" },
+      { id: "false", name: "Non payé" },
+    ]}
+  />,
+];
 
 const StagiaireQuickActions = () => (
   <TopToolbar>
-    <FilterButton />
     <CreateButton label="Ajouter un stagiaire" />
     <Button
       component={Link}
@@ -111,7 +106,7 @@ const StagiaireQuickActions = () => (
 );
 
 export const StagiaireList = () => (
-  <List actions={<StagiaireQuickActions />} filters={<StagiaireFilters />}>
+  <List actions={<StagiaireQuickActions />} filters={stagiaireFilters}>
     <Datagrid rowClick="show">
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
