@@ -32,6 +32,8 @@ const DuplicateButton = () => {
   const [create] = useCreate();
   const navigate = useNavigate();
 
+  if (!record) return null;
+
   const handleClick = () => {
     create("interns", { data: { ...record, id: undefined } }, {
       onSuccess: () => navigate("/interns"),
@@ -48,6 +50,8 @@ const DuplicateButton = () => {
 const TogglePaidButton = () => {
   const record = useRecordContext();
   const [update] = useUpdate();
+
+  if (!record) return null;
 
   const handleClick = () => {
     update("interns", {
