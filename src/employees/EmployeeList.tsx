@@ -5,7 +5,6 @@ import {
   TextField,
   EmailField,
   NumberField,
-  BooleanField,
   FunctionField,
   SearchInput,
   SelectInput,
